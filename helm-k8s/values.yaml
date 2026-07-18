@@ -1,6 +1,5 @@
 backend:
   name: wanderlust-backend
-  namespace: wanderlust
   replicas: 2
   app: backend
   image: 562404438689.dkr.ecr.us-east-1.amazonaws.com/wanderlust-backend
@@ -13,7 +12,6 @@ backend:
 
 frontend:
   name: wanderlust-frontend
-  namespace: wanderlust
   replicas: 2
   app: frontend
   image: 562404438689.dkr.ecr.us-east-1.amazonaws.com/wanderlust-frontend
@@ -39,18 +37,15 @@ mongodb:
   pullPolicy: IfNotPresent # Kind built-in storage class
   storage:
     size: 1Gi
-  #secret:
-  #name: mongo-secret
-  #namespace: starbucks-ns
-  #app: mongo-express
-  #mongoUser: YWRtaW4K
-  #mongoPassword: cGFzc3dvcmQxMjMK
 
 secret:
   name: mongodb-secret
   jwtSecret: mysecretkey
-  mongoUser: admin
-  mongoPassword: secret123
+  mongoUser: YWRtaW4=
+  mongoPassword: c2VjcmV0MTIz
+
+namespace:
+  name: wanderlust
 
 redis:
   name: redis

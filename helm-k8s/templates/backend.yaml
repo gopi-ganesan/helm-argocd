@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.backend.name }}
-  namespace: {{ .Values.backend.namespace }}
+  namespace: {{ .Values.namespace.name }}
   labels:
     app: {{ .Values.backend.app }}
 
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.backend.name }}
-          image: {{ .Values.backend.image }}
+          image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
           imagePullPolicy: {{ .Values.backend.imagePullPolicy }}
 
           ports:
@@ -66,7 +66,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-svc
-  namespace: {{ .Values.backend.namespace }}
+  namespace: {{ .Values.namespace.name }}
 
 spec:
   type: ClusterIP
