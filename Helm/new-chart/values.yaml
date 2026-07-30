@@ -7,7 +7,7 @@ backend:
   nodeport: 30001
   path: /health
   targetPort: 5000
-  tag: v1
+  tag: v2
   imagePullPolicy: always
 
 frontend:
@@ -19,7 +19,7 @@ frontend:
   nodeport: 30000
   path: /
   targetPort: 80
-  tag: v1
+  tag: v2
   imagePullPolicy: always
 
 mongodb:
