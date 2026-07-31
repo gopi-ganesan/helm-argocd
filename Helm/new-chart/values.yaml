@@ -8,7 +8,7 @@ backend:
   path: /health
   targetPort: 5000
   tag: v1
-  imagePullPolicy: always
+  imagePullPolicy: Always
 
 frontend:
   name: wanderlust-frontend
@@ -20,7 +20,7 @@ frontend:
   path: /
   targetPort: 80
   tag: v1
-  imagePullPolicy: always
+  imagePullPolicy: Always
 
 mongodb:
   name: mongodb
