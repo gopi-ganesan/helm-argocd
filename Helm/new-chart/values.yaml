@@ -61,6 +61,7 @@ redis:
 
 ingress:
   enabled: true
+  namespace: wanderlust
   ingressClassName: alb
   name: wanderlust-ingress
   annotations:
