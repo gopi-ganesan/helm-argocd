@@ -60,25 +60,26 @@ redis:
   storageSize: 512Mi
 
 ingress:
+  enabled: true
   ingressClassName: alb
-  name:  wanderlust-ingress
-  namespace : wanderlust
+  name: wanderlust-ingress
   annotations:
     kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/group.name: project-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 
 ArgoCD:
   name: argocd-ingress
-  serviceName: argocd-server
   namespace: argocd
-  port: 
+  serviceName: argocd-server
+  port:
     number: 80
 
 grafana:
-  name: wanderlust-grafana
+  name: grafana-ingress
+  namespace: monitoring
   serviceName: kube-prometheus-stack-grafana
-  type: ClusterIP
-  namespace : prometheus
   port: 80
 
 
