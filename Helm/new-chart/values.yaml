@@ -91,4 +91,4 @@ ServiceAccount:
   namespace: kube-system
 
   annotations:
-    eksRoleArn: arn:aws:iam::<ACCOUNT_ID>:role/AmazonEKSLoadBalancerControllerRole
+    eksRoleArn: arn:aws:iam::940521993730:role/eks-ingress
