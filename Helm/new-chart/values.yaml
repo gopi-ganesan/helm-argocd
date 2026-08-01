@@ -72,7 +72,7 @@ ingress:
 ArgoCD:
   name: argocd-ingress
   namespace: argocd
-  serviceName: argocd-server
+  serviceName: argocd-server 
   port:
     number: 80
 
