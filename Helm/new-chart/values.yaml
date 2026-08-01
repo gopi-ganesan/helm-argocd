@@ -58,3 +58,25 @@ redis:
   port: 6379
   storageClassName: standard
   storageSize: 512Mi
+
+ingress:
+  ingressClassName: alb
+  name:  wanderlust-ingress
+  namespace : wanderlust
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    ingressClassName: alb
+
+agrocd:
+  name: wanderlust-argocd
+  namespace: argocd
+  serviceName: argocd-server
+  port: 
+    number: 80
+
+grafana:
+  name: wanderlust-grafana
+  serviceName: kube-prometheus-stack-grafana
+  namespace : prometheus
+  port: 80
