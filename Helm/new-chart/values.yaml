@@ -64,9 +64,8 @@ ingress:
   name:  wanderlust-ingress
   namespace : wanderlust
   annotations:
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    ingressClassName: alb
 
 agrocd:
   name: wanderlust-argocd
@@ -78,10 +77,11 @@ agrocd:
 grafana:
   name: wanderlust-grafana
   serviceName: kube-prometheus-stack-grafana
+  type: ClusterIP
   namespace : prometheus
   port: 80
 
- ServiceAccount:
+ServiceAccount:
   serviceAccountName: my-app-service-account
   namespace: wanderlust
   annotations:
