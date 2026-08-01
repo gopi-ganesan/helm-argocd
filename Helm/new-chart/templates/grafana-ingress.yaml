@@ -4,8 +4,8 @@ metadata:
   name: {{ .Values.grafana.name }}
   namespace: {{ .Values.grafana.namespace }}
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/scheme: {{ .Values.grafana.annotations.scheme }}
+    alb.ingress.kubernetes.io/target-type: {{ .Values.grafana.annotations.targetType }}
 spec:
   ingressClassName: alb
   rules:

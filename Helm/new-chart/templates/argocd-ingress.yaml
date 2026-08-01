@@ -4,8 +4,8 @@ metadata:
   name: {{ .Values.ArgoCD.name }}
   namespace: {{ .Values.ArgoCD.namespace }}
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/scheme: {{ .Values.ArgoCD.annotations.scheme }}
+    alb.ingress.kubernetes.io/target-type: {{ .Values.ArgoCD.annotations.targetType }}
 spec:
   ingressClassName: alb
   rules:
