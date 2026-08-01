@@ -80,3 +80,10 @@ grafana:
   serviceName: kube-prometheus-stack-grafana
   namespace : prometheus
   port: 80
+
+ ServiceAccount:
+  serviceAccountName: my-app-service-account
+  namespace: wanderlust
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::940521993730:role/eks-ingress
+ 

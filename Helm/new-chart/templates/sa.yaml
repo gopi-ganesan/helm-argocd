@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: my-app-service-account
-  namespace: default
+  name: {{ .Values.ServiceAccount.serviceAccountName }}
+  namespace: {{ .Values.ServiceAccount.namespace }}
   annotations:
-    ://amazonaws.com: arn:aws:iam::940521993730:role/eks-ingress
+    eks.amazonaws.com/role-arn: {{ .Values.ServiceAccount.annotations.eks.amazonaws.com/role-arn }}
