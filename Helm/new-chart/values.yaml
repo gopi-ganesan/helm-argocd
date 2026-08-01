@@ -86,9 +86,3 @@ grafana:
   port: 80
 
 
-ServiceAccount:
-  serviceAccountName: aws-load-balancer-controller
-  namespace: kube-system
-
-  annotations:
-    eksRoleArn: arn:aws:iam::940521993730:role/eks-ingress
