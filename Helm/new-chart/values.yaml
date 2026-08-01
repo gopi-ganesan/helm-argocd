@@ -5,7 +5,7 @@ backend:
   image: 940521993730.dkr.ecr.us-east-1.amazonaws.com/wanderlust-backend
   port: 5000
   nodeport: 30001
-  path: /health
+  path: /backend/health
   targetPort: 5000
   tag: v1
   imagePullPolicy: Always
