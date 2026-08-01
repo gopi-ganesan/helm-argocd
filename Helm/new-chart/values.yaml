@@ -59,11 +59,13 @@ redis:
   storageClassName: standard
   storageSize: 512Mi
 
+
 ingress:
   enabled: true
+  name: wanderlust-ingress
   namespace: wanderlust
   ingressClassName: alb
-  name: wanderlust-ingress
+
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/group.name: project-alb
