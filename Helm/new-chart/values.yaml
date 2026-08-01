@@ -82,8 +82,8 @@ grafana:
   port: 80
 
 ServiceAccount:
-  serviceAccountName: my-app-service-account
-  namespace: wanderlust
+  serviceAccountName: aws-load-balancer-controller
+  namespace: kube-system
+
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::940521993730:role/eks-ingress
- 
+    eksRoleArn: arn:aws:iam::123456789012:role/AmazonEKSLoadBalancerControllerRole
