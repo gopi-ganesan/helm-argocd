@@ -67,7 +67,7 @@ ingress:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
 
-agrocd:
+ArgoCD:
   name: wanderlust-argocd
   serviceName: argocd-server
   namespace: argocd

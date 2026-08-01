@@ -24,9 +24,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.argocd.serviceName }}   
+                name: {{ .Values.ArgoCD.serviceName }}   
                 port:
-                  number: {{ .Values.argocd.port }}
+                  number: {{ .Values.ArgoCD.port }}
 
           - path: /
             pathType: Prefix
