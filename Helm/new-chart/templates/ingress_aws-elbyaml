@@ -2,44 +2,27 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.ingress.namespace }}
   annotations:
-    kubernetes.io/ingress.class: {{ .Values.ingress.ingressClassName }}
-    {{- toYaml .Values.ingress.annotations | nindent 4 }}
-
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: {{ .Values.ingress.ingressClassName }}
+  ingressClassName: alb
   rules:
     - http:
         paths:
-          - path: /backend
-            pathType: Prefix
-            backend:
-              service:
-                name: {{ .Values.backend.serviceName }}  
-                port:
-                  number: {{ .Values.backend.port }}
-
-          - path: /argocd
-            pathType: Prefix
-            backend:
-              service:
-                name: {{ .Values.ArgoCD.serviceName }}   
-                port:
-                  number: {{ .Values.ArgoCD.port }}
-
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.frontend.serviceName }}  
+                name: {{ .Values.frontend.serviceName }}
                 port:
                   number: {{ .Values.frontend.port }}
 
-          - path: /grafana
+          - path: /backend
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.grafana.serviceName }}  
+                name: {{ .Values.backend.serviceName }}
                 port:
-                  number: {{ .Values.grafana.port }}
+                  number: {{ .Values.backend.port }}
