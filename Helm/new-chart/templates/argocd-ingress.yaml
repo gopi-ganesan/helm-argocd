@@ -4,17 +4,18 @@ metadata:
   name: {{ .Values.ArgoCD.name }}
   namespace: {{ .Values.ArgoCD.namespace }}
   annotations:
-    alb.ingress.kubernetes.io/scheme: {{ .Values.ArgoCD.annotations.scheme }}
-    alb.ingress.kubernetes.io/target-type: {{ .Values.ArgoCD.annotations.targetType }}
+    alb.ingress.kubernetes.io/group.name: project-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
   ingressClassName: alb
   rules:
     - http:
         paths:
-          - path: /
+          - path: /argocd
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.ArgoCD.serviceName }}
+                name: argocd-server
                 port:
-                  number: {{ .Values.ArgoCD.port.number }}
+                  number: 80

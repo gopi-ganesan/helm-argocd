@@ -68,15 +68,11 @@ ingress:
     alb.ingress.kubernetes.io/scheme: internet-facing
 
 ArgoCD:
-  name: wanderlust-argocd
+  name: argocd-ingress
   serviceName: argocd-server
   namespace: argocd
   port: 
     number: 80
-
-    annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
 
 grafana:
   name: wanderlust-grafana
@@ -84,9 +80,7 @@ grafana:
   type: ClusterIP
   namespace : prometheus
   port: 80
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
+
 
 ServiceAccount:
   serviceAccountName: aws-load-balancer-controller
