@@ -65,7 +65,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-svc
+  name: {{ .Values.backend.serviceName }}
   namespace: {{ .Values.namespace.name }}
 
 spec:

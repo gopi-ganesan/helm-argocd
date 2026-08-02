@@ -1,5 +1,6 @@
 backend:
   name: wanderlust-backend
+  serviceName: backend-svc
   replicas: 2
   app: backend
   image: 940521993730.dkr.ecr.us-east-1.amazonaws.com/wanderlust-backend
@@ -12,6 +13,7 @@ backend:
 
 frontend:
   name: wanderlust-frontend
+  serviceName: frontend-svc
   replicas: 2
   app: frontend
   image: 940521993730.dkr.ecr.us-east-1.amazonaws.com/wanderlust-frontend
