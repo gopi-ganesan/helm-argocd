@@ -63,7 +63,6 @@ redis:
 ingress:
   enabled: true
   name: wanderlust-ingress
-  namespace: wanderlust
   ingressClassName: alb
 
   annotations:
@@ -71,6 +70,8 @@ ingress:
     alb.ingress.kubernetes.io/group.name: project-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
+
 
 ArgoCD:
   name: argocd-ingress
