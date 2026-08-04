@@ -49,6 +49,10 @@ secret:
 namespace:
   name: wanderlust
 
+configmap:
+  name: devops-project-backend-config
+  namespace: wanderlust
+
 redis:
   name: redis
   namespace: wanderlust
