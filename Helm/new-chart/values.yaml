@@ -64,7 +64,7 @@ redis:
   image: redis:7 # matched to your docker-compose
   pullPolicy: IfNotPresent
   port: 6379
-  storageClassName: standard
+  storageClassName: gp2
   storageSize: 512Mi
 
 
