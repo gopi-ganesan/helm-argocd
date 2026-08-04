@@ -9,7 +9,7 @@ backend:
   port: 5000
   targetPort: 5000
   nodeport: 30001
-  path: /api/health
+  path: /health
 
   jwtSecret: "MySuperSecretKey123"
 
