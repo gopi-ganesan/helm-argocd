@@ -28,17 +28,19 @@ frontend:
 
 mongodb:
   name: mongodb
-  dbName: wanderlust
-  serviceName: mongodb-sc
   namespace: wanderlust
-  replicas: 2
+  serviceName: mongodb-sc
   app: mongodb
+  replicas: 2
+
   image: mongo:7.0
+  pullPolicy: IfNotPresent
+
   port: 27017
-  database: starbucks
-  storageClassName: standard
-  secretName: mongodb-secret
-  pullPolicy: IfNotPresent # Kind built-in storage class
+  dbName: wanderlust
+
+  storageClassName: gp2
+
   storage:
     size: 1Gi
 
@@ -64,6 +66,7 @@ redis:
   port: 6379
   storageClassName: standard
   storageSize: 512Mi
+
 
 
 ingress:
