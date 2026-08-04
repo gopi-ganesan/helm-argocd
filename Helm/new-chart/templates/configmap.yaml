@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-backend-config
+  name: devops-project-backend-config
   namespace: {{ .Release.Namespace }}
 
 data:
