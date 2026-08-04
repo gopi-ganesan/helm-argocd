@@ -70,22 +70,9 @@ ingress:
 
   annotations:
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/group.name: project-alb
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
 
 
-ArgoCD:
-  name: argocd-ingress
-  namespace: argocd
-  serviceName: argocd-server 
-  port:
-    number: 80
-
-grafana:
-  name: grafana-ingress
-  namespace: prometheus
-  serviceName: kube-prometheus-stack-grafana
-  port: 80
 
 
