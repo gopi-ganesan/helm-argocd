@@ -45,20 +45,20 @@ spec:
             failureThreshold: 5
             periodSeconds: 10
 
-          livenessProbe:
-            httpGet:
-              path: {{ .Values.backend.path }}
-              port: {{ .Values.backend.port }}
-            initialDelaySeconds: 15
-            periodSeconds: 20
-            failureThreshold: 5
-
           readinessProbe:
             httpGet:
               path: {{ .Values.backend.path }}
               port: {{ .Values.backend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
+            failureThreshold: 5
+
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.backend.path }}
+              port: {{ .Values.backend.port }}
+            initialDelaySeconds: 15
+            periodSeconds: 20
             failureThreshold: 5
 
 ---

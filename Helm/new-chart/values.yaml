@@ -4,12 +4,14 @@ backend:
   replicas: 2
   app: backend
   image: 940521993730.dkr.ecr.us-east-1.amazonaws.com/wanderlust-backend
-  port: 5000
-  nodeport: 30001
-  path: /backend/health
-  targetPort: 5000
   tag: v1
   imagePullPolicy: Always
+  port: 5000
+  targetPort: 5000
+  nodeport: 30001
+  path: /backend/health
+
+  jwtSecret: "MySuperSecretKey123"
 
 frontend:
   name: wanderlust-frontend
@@ -49,9 +51,6 @@ secret:
 namespace:
   name: wanderlust
 
-configmap:
-  name: devops-project-backend-config
-  namespace: wanderlust
 
 redis:
   name: redis
